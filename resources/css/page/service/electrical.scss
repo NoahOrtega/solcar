@@ -1,0 +1,47 @@
+@import "../../variables";
+.banner {
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    .text {
+        margin: 0;
+    }
+}
+
+.service-grid {
+    margin: auto;
+    width: 90%;
+}
+
+.service-item {
+    font-size: 1em;
+    margin-bottom: 2em;
+}
+
+.section-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    object-position: 50%;
+    margin-bottom: .3em;
+}
+
+@include not-mobile {
+    .service-grid {
+        display: grid;
+        column-gap: 30px;
+        justify-content: center;
+    }
+}
+
+@include max {
+    .service-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@include not-max {
+    .service-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

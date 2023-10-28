@@ -1,0 +1,390 @@
+    @import "../variables";
+    .section-heading {
+        text-align: center;
+        color: $text-color;
+        font-size: 2rem;
+        font-weight: weight(bold);
+    }
+    
+    .section-underline {
+        width: 100px;
+        border-top: 3px solid $text-color-lighter;
+        margin: 10px auto 15px auto;
+    }
+    
+    .read-more-link {
+        color: black;
+        text-decoration: none;
+        font-weight: weight(bold);
+    }
+    
+    .read-more-link:hover {
+        text-decoration: underline;
+    }
+    
+    //homepage header image
+    .home-section {
+        background-color: white;
+        font-family: Roboto;
+    }
+    
+    .homepage-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        margin-right: -1px; //to fix css-grid issue
+    }
+    
+    .homepage-header-image {
+        grid-column: 1/-1;
+        grid-row: 1/-1;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .homepage-header-tagline {
+        grid-column: 1/3;
+        grid-row: 1/-1;
+        color: rgb(230, 230, 230);
+        max-width: 90%;
+        padding: 0px 15% 0px 5%;
+        font-size: 4.5vw;
+        font-weight: weight(bold);
+        background-color: rgba(71, 71, 71, 0.425);
+        background: linear-gradient(to right, rgba(71, 71, 71, 0.425) 90%, rgba(255, 255, 255, 0) 100%);
+
+        display: flex;
+        align-items: center;
+    }
+    
+    .homepage-header-contact {
+        grid-column: -3/-1;
+        grid-row: -3/-1;
+        place-self: end end;
+        padding: 0px 24px 24px;
+        text-align: center;
+        box-shadow: 0px 0px 10px 10px rgba(146, 146, 146, .26);
+        background-color: rgba(146, 146, 146, 0.26);
+        z-index: 0;
+    }
+    
+    .homepage-header-phone {
+        color: whitesmoke;
+        font-size: 2.5rem;
+        font-weight: weight(bold);
+        text-decoration: none;
+        &:hover {
+            color: $accent-color;
+        }
+    }
+    
+    .homepage-header-contact-button {
+        margin-top: 16px;
+        font-size: 1.5rem;
+        font-weight: weight(bold);
+        background-color: whitesmoke;
+        color: $primary-color;
+        padding: 8px 20px;
+        border-radius: 4px;
+        border-style: none;
+        &:hover {
+            color: $accent-color;
+            background-color: whitesmoke;
+        }
+    }
+    
+    @include max {
+        .homepage-header-tagline {
+            font-size: 3.3rem;
+        }
+    }
+    
+    @include mobile {
+        .homepage-header-contact {
+            padding: 0 16px 16px;
+            margin: 16px;
+            grid-row: 1/-1;
+            grid-column: -4/-1;
+            .homepage-header-phone {
+                font-size: 2rem;
+            }
+            .homepage-header-contact-button {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .homepage-header-contact {
+            .homepage-header-phone {
+                font-size: 6vw;
+            }
+            .homepage-header-contact-button {
+                font-size: 5vw;
+            }
+        }
+    }
+
+    // CERTIFICATION ICONS BANNER
+
+    .banner {
+        position: relative;
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        padding: 10px;
+    }
+
+    @include mobile {
+        .banner {
+            display: none;
+        }
+    }
+    
+    .logo-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .logo-row img {
+        margin: 0 10px;
+        max-height: 60px;
+        max-width: 80px;
+    }
+
+    // SERVICES
+    .our-services {
+        margin-top: 20px;
+        padding-bottom: 12px;
+    }
+    
+    .services-general {
+        text-align: center;
+        margin: auto;
+        padding: 16px;
+        max-width: 750px;
+        font-size: 1.1rem;
+    }
+    
+    .service-container {
+        margin: 0 auto 20px;
+        flex-basis: 24%;
+        background-color: $accent-color;
+    }
+    
+    $top-height: 50px;
+    .service-top {
+        background-color: $primary-color;
+        height: $top-height;
+        line-height: $top-height;
+        font-weight: weight(bold);
+        letter-spacing: 0.1em;
+        overflow: hidden;
+        color: white;
+    }
+    
+    .service-top-link {
+        text-decoration: none;
+    }
+    
+    .service-icon {
+        width: $top-height - 5;
+        height: 100%;
+        float: left;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    
+    .service-bottom {
+        padding: 20px;
+    }
+
+    .service-description {
+        margin-bottom: 10px;
+    }
+
+    @include max {
+        .service-bottom {
+            padding-left: 5px;
+        }
+
+        .service-container:first-child {
+            .service-bottom {
+                padding-left: 20px;
+            }
+            .service-icon {
+                margin-left: 5px;
+            }
+        }
+    }
+
+
+    @include not-mobile {
+        .service-list {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    
+    @media (max-width: $page-width) {
+
+        .service-icon {
+            margin-left: 10px;
+        }
+
+        .service-list {
+            margin: 0 24px;
+        }
+        .service-list {
+            flex-wrap: wrap;
+        }
+        .service-container {
+            flex-basis: 49%;
+        }
+    }
+    
+    @include mobile {
+        .service-bottom {
+            display: none;
+        }
+        .service-title {
+            &:hover {
+                // text-decoration: underline;
+                color: $accent-color
+            }
+        }
+    }
+    
+    //IMAGE DIVIDER//////////////////////////////////////////
+    .image-divider-section {
+        height: 150px;
+        width: 100%;
+        background-size: cover;
+        background-position: center 70%;
+    }
+    
+    @include not-mobile {
+        .image-divider-section {
+            margin-bottom: 32px;
+        }
+    }
+    
+    //TESTIMONIAL & ABOUT US //////////////////////////////////////////////////////
+    .about-us-section {
+        background-color: $accent-color;
+    }
+    
+    .testimonial-container {
+        flex: 3;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 30px 10px;
+    }
+    
+    .about-us-container {
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 30px 0px;
+    }
+    
+    .testimonial-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 1fr;
+        .icon {
+            font-size: 40px;
+            color: $text-color-lighter;
+        }
+    }
+    
+    .testimonial-text {
+        text-align: center;
+        grid-column: 1/-1;
+        grid-row: 1/-1;
+        font-size: 1.25rem;
+        padding: 30px 30px;
+        font-weight: weight(bold);
+        display: flex;
+        align-items: center;
+        padding-top: 37px;
+        color: $text-color;
+    }
+    
+    @include not-mobile {
+        .about-us-section {
+            display: flex;
+            justify-content: space-between;
+        }
+        .testimonial-container {
+            margin-left: 24px;
+        }
+    }
+    
+    @media (max-width: 1000px) {
+        .testimonial-text {
+            font-size: 18px;
+        }
+    }
+    
+    .testimonial-grid .icon {
+        font-size: 32px;
+    }
+    
+    .quote-icon {
+        grid-column: 1/2;
+        grid-row: 1/-1;
+    }
+    
+    .unquote-icon {
+        grid-column: -2/-1;
+        grid-row: 1/-1;
+        place-self: end end;
+        padding: 0 20px 10px 0;
+    }
+    
+    .testimonial-source {
+        text-align: center;
+    }
+    
+    //about
+    .about-us-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .about-us-text {
+        padding: 0px 24px;
+        .about-point {
+            padding-top: 1rem;
+            list-style-type: none;
+        }
+        .fas {
+            padding-top: 3px;
+            color: $primary-color;
+            // background-color: pink;
+            width: 2rem;
+            text-align: center;
+            float: left;
+            font-size: 2rem;
+        }
+        p {
+            padding-left: 3rem;
+            line-height: 1.5rem;
+            font-size: 1.2rem;
+        }
+    }
+    
+    .about-us-read-more {
+        text-align: right;
+        padding: 10px 20px 0px 0;
+    }

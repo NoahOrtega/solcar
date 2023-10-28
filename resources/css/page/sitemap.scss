@@ -1,0 +1,20 @@
+@import "../variables";
+.sitemap {
+    padding-left: 3rem;
+    font-size: 1.8rem;
+    ul {
+        padding-left: 3rem;
+    }
+    li {
+        // text-decoration: none;
+        color: $accent-color;
+    }
+    a {
+        color: $text-color;
+        text-decoration: none;
+        &:hover {
+            color: $accent-color;
+            text-decoration: underline;
+        }
+    }
+}

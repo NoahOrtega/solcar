@@ -1,0 +1,93 @@
+@import "../../variables";
+
+
+.page-contents {
+    p {
+        +p {
+            margin-top: .5em;
+        }
+    }
+    
+    ul {
+        margin-left: 1.2rem;
+    }
+    li {
+        margin-top: .5em;
+    }
+}
+
+.article-section {
+    margin-top: 1rem;
+}
+
+.article-subsection {
+    margin-top: 1rem;
+}
+
+.subheading, .photo-caption {
+    font-size: .8em;
+    font-style: italic;
+}
+
+.photo-caption {
+    width: 100%;
+    text-align: right;
+    
+    a {
+        color: $text-color;
+    }
+}
+
+.item-heading {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.banner-highlight {
+    @include background-to-edge;
+    background-color: $banner-color;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.section-heading, .subsection-heading {
+    margin-bottom: 0;
+}
+
+.img-wrapper {
+    margin-top: 2rem;
+    img {
+        width: 100%;
+        height: 200px;
+        object-position: 0% 10%;
+        object-fit: cover;
+    }
+}
+
+.flex-image {
+    display: flex;
+}
+.vert-photo {
+    display: none;
+    margin-left: 1rem;
+    img {
+        height: auto;
+    }
+}
+
+.horiz-photo {
+    img {
+        object-fit: contain;
+        height:auto;
+    }
+}
+
+
+@include max {
+    .vert-photo {
+        display: block;
+    }
+    .horiz-photo {
+        display: none;
+    }
+}

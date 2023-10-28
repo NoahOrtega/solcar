@@ -1,0 +1,62 @@
+@import "../../variables";
+ul.text {
+    list-style-position: outside;
+    margin-left: 1.5em;
+}
+
+.colorful {
+    padding: 1rem;
+    background-color: $banner-color;
+}
+
+.note {
+    width: 90%;
+}
+
+// .column {
+//     align-self: center;
+// }
+.text-section {
+    flex: 3;
+    order: 1;
+}
+
+.img-section {
+    flex: 2;
+    order: 2;
+}
+
+.bucket-image {
+    object-fit: cover;
+}
+
+.farewell {
+    font-size: 1.4rem;
+    padding: 20px;
+}
+
+@include not-mobile {
+    .bucket-image {
+        max-width: 100%;
+        height: 100%;
+        object-position: 0%;
+    }
+    ul.text {
+        margin-right: 25%;
+    }
+    .column-section {
+        margin-bottom: 1rem;
+    }
+}
+
+@include mobile {
+    .bucket-image {
+        margin-top: 15px;
+        width: 100%;
+        height: 200px;
+        object-position: 0% 10%;
+    }
+    ul.text {
+        margin-right: 10%;
+    }
+}

@@ -1,0 +1,44 @@
+@import "../../variables";
+.gen-repair-image {
+    width: 100%;
+}
+
+.question-section {
+    height: 100%;
+    align-self: center;
+    text-align: center;
+    .section-heading {
+        font-size: 2em;
+    }
+    .text {
+        font-size: 1.17em;
+        margin-bottom: 32px;
+    }
+}
+
+.special-banner {
+    padding: 1rem;
+    @include background-to-edge;
+    background-color: $banner-color;
+    margin-bottom: 1rem;
+}
+
+@include not-mobile {
+    .special-banner {
+        margin-right: auto;
+    }
+}
+
+.generator-pic-flex {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 32px;
+}
+
+.image-section {
+    width: 35%;
+}
+
+.generator-img {
+    width: 100%;
+}

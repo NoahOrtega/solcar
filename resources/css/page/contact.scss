@@ -1,0 +1,57 @@
+@import "../variables";
+
+.h0neyP0t-section {
+    display:none !important;
+}
+
+.section-heading, .email-explanation {
+    text-align: center;
+}
+
+.input-section input {
+    width: 60%;
+    max-width: 265px;
+}
+
+input {
+    line-height: 1.5rem;
+    margin-bottom: 10px;
+}
+
+input, textarea {
+    color: $text-color;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+    height: 90%;
+}
+
+small {
+    color:lightcoral;
+}
+
+.thank-you, .mail-result {
+    text-align: center;
+}
+
+.column-section .column {
+    flex: 1;
+}
+
+.location-text {
+    text-align: center;
+}
+
+.map-embed {
+    margin-bottom: 1em;
+}
+
+.submit-button {
+    height: 1.5rem;
+    padding: 0 10px;
+    font-size: 1.17rem;
+    color: $text-color;
+    margin-top: 5px;
+}

@@ -1,0 +1,60 @@
+@import "../../variables";
+.quote-section {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.quote-grid {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    grid-template-rows: 20px 1fr 0px;
+}
+
+.quote-icon-left {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.quote-text {
+    grid-column: 2/-2;
+    grid-row: 1/-2;
+    font-size: 1.3rem;
+    padding-bottom: .3rem;
+}
+
+.quote-icon-right {
+    grid-column: -1/-2;
+    grid-row: -2/-3;
+}
+
+.quote-info {
+    grid-column: 2/2;
+    grid-row: -2/-1;
+    padding-top: .5rem;
+    padding-left: 1.3rem;
+}
+
+.quote-source {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+@include not-mobile {
+    .quote-grid {
+        width: 90%;
+    }
+}
+
+.quote-icon {
+    font-size: 1rem;
+}
+
+.fa-quote-right {
+    position: relative;
+    top: 4px;
+    left: 5px;
+}
+
+.no-separate {
+    white-space: nowrap;
+}

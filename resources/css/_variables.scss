@@ -1,0 +1,65 @@
+$blank-color: white;
+$company-color: #416330;
+$primary-color: #575f53;
+$accent-color: #a7c0a7;
+//section&banner colors
+$banner-color: #d3dfd3;
+// text colors
+$heading-text-color: #545454;
+$text-color: #545454;
+$text-color-lighter: rgb(158, 158, 158);
+$text-link-color: #a7c0a7;
+$text-link-color-darker:#8ca08c;
+// measurements
+$header-height: 80px;
+$footer-height: 85px;
+$page-width: 1200px;
+$standard-side-padding: 30px;
+$small-side-padding: 10px;
+
+@mixin background-to-edge {
+
+    margin-left: -$small-side-padding;
+    margin-right: -$small-side-padding;
+    padding-left: $small-side-padding;
+    padding-right: $small-side-padding;
+
+    @include not-mobile { 
+        margin-left: -$standard-side-padding;
+        margin-right: -$standard-side-padding;
+        padding-left: $standard-side-padding;
+        padding-right: $standard-side-padding;
+    }
+}
+
+// font weight
+$font-weights: ( "regular": 400, "medium": 500, "bold": 700);
+@function weight($weight-name) {
+    @return map-get($font-weights, $weight-name)
+}
+
+$mobile: 800px;
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin not-mobile {
+    @media (min-width: ($mobile + 1px)) {
+        @content
+    }
+}
+
+$maximum-width: 1200px;
+@mixin max {
+    @media (min-width: $maximum-width) {
+        @content;
+    }
+}
+
+@mixin not-max {
+    @media (max-width: ($maximum-width - 1)) {
+        @content;
+    }
+}
