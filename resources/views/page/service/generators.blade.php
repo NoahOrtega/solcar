@@ -45,7 +45,7 @@
         <p class="text">Call Solcar Electric, Inc. for special prices on generator inspection, service,
             sales and installation.</p>
 
-        <a href="/pages/contact.php" class="text_link">Schedule an appointment today!</a>
+        <a href="/contact" class="text_link">Schedule an appointment today!</a>
     </div>
 </div>
 <div class="generator-pic-flex">

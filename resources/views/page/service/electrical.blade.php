@@ -85,7 +85,7 @@
         <p class="text">
             We've only scratched the surface of Solcar's capabilities. If you have a
             problem, we're here to help you solve it. <br><br>
-            <a href="/pages/services/our-services.php" class="text_link">Click here for a full list of our
+            <a href="/services/our-services" class="text_link">Click here for a full list of our
                 services</a><br>
         </p>
     </div>
@@ -95,7 +95,7 @@
     We're looking forward to working with you! Get in contact with us to discuss your electrical needs and
     we'll provide you with a free estimate.<br><br>
     Call us today at <a href="tel:786-558-8033" class="text_link">786-558-8033</a> or <a
-        href="/pages/contact.php" class="text_link">send us a message</a> with any
+        href="/contact" class="text_link">send us a message</a> with any
     questions you may have regarding our services.
 </p>
 @endsection

@@ -56,7 +56,7 @@
     </p>
 </div>
 
-<p class="subsection-heading farewell"> <a href="/pages/contact.php" class="text_link">Contact us for a free estimate.</a>
+<p class="subsection-heading farewell"> <a href="/contact" class="text_link">Contact us for a free estimate.</a>
 We're here to work with you and for you.
     Proposals are provided on all jobs that require approval by association members.
 </p>

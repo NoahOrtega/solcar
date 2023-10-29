@@ -36,7 +36,7 @@
         Our business relies on our customer's satisfaction, nearly 95% of our sales are repeat business and referrals
         from our satisfied clients. Our customers recommend us for our timeliness, attention to detail,
         and service-minded attitude.
-        <br><a class="read-more" href="/pages/about/testimonials.php">Hear from our satisfied customers</a>
+        <br><a class="read-more" href="/about/testimonials">Hear from our satisfied customers</a>
     </div>
 </div>
 <div class="info-section">
@@ -44,7 +44,7 @@
     <div class="text">
         Solcar Electric Inc is licensed, bonded and insured. We are a certified Generac and Briggs and Stratton service and sales dealer, EcoXpert™
         certified by Schneider Electric, and an EPA lead-safe certified firm.
-        <br><a class="read-more" href="/pages/about/certifications.php">Read more about our certifications</a>
+        <br><a class="read-more" href="/about/certifications">Read more about our certifications</a>
     </div>
 </div>
 @endsection

@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title> @yield('title') </title>
         <meta name="description" content="@yield('description')">
-        <link rel="apple-touch-icon" href="images/logos/sc_apple_touch.png">
+        <link rel="apple-touch-icon" href="/images/logos/sc_apple_touch.png">
         <meta name="author" content="Merry Ortega">
         <link rel="stylesheet" href="/build/css/main.css">
         {{-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script> --}}

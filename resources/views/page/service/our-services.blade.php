@@ -14,7 +14,7 @@
 
 <div class="service-grid">
     <div class="service-item">
-        <a href="/pages/services/electrical.php">
+        <a href="/services/electrical">
             <img class="section-image" src="\images\pages\services\our-services\e-s-thermal-scan.jpg"
                 alt="Thermal scan of wiring.">
             <h2 class="section-heading">Electrical Services</h2>
@@ -36,10 +36,10 @@
             <li>High tech trouble-shooting</li>
             <li>Thermal scanning and reports</li>
         </ul>
-        <a class="learn-more" href="/pages/services/electrical.php">Learn More</a>
+        <a class="learn-more" href="/services/electrical">Learn More</a>
     </div>
     <div class="service-item">
-        <a href="/pages/services/electrical.php">
+        <a href="/services/electrical">
             <img class="section-image" src="\images\pages\services\our-services\data-services.jpg"
                 alt="A technician connecting data wires to ports within a networking panel.">
             <h2 class="section-heading">Data and Network Services</h2>
@@ -52,10 +52,10 @@
             <li>Cabinet and patch panels installation</li>
             <li>Cable trays installation </li>
         </ul>
-        <a class="learn-more" href="/pages/services/electrical.php">Learn More</a>
+        <a class="learn-more" href="/services/electrical">Learn More</a>
     </div>
     <div class="service-item">
-        <a href="/pages/services/electrical.php">
+        <a href="/services/electrical">
             <img class="section-image" src="\images\pages\services\our-services\outdoor lighting.jpg"
                 alt="Bollard lights within beds of flowers in the middle of a roadway verge.">
             <h2 class="section-heading">Outdoor and Parking Lot Lighting</h2>
@@ -65,13 +65,13 @@
             <li>HID lighting maintenance</li>
             <li>Underground lighting fixtures</li>
             <li>Security and landscape lighting</li>
-            <li><a href="/pages/services/lighting.php">Monthly maintenance contracts <span
+            <li><a href="/services/lighting">Monthly maintenance contracts <span
                         class="learn-more together">(Read More)</span></a></li>
         </ul>
-        <a class="learn-more" href="/pages/services/electrical.php">Learn More</a>
+        <a class="learn-more" href="/services/electrical">Learn More</a>
     </div>
     <div class="service-item">
-        <a href="/pages/services/electrical.php">
+        <a href="/services/electrical">
             <img class="section-image" src="\images\pages\services\our-services\indoor-lighting.JPG"
                 alt="A large torus shaped light hung in the ceiling of a home's foyer.">
             <h2 class="section-heading">Indoor Lighting</h2>
@@ -85,10 +85,10 @@
             <li>Exit signs installation and repair</li>
             <li>Emergency lights installation and repair</li>
         </ul>
-        <a class="learn-more" href="/pages/services/electrical.php">Learn More</a>
+        <a class="learn-more" href="/services/electrical">Learn More</a>
     </div>
     <div class="service-item">
-        <a href="/pages/services/generators.php">
+        <a href="/services/generators">
             <img class="section-image"
                 src="\images\pages\services\our-services\portable-generator-outside.jpg"
                 alt="A portable generac generator outside of a home's garage.">
@@ -102,10 +102,10 @@
             <li>Generator warranty</li>
             <!-- <li>Free one time inspection</li> -->
         </ul>
-        <a class="learn-more" href="/pages/services/generators.php">Learn More</a>
+        <a class="learn-more" href="/services/generators">Learn More</a>
     </div>
     <div class="service-item">
-        <a href="/pages/services/ev-charging.php">
+        <a href="/services/ev-charging">
             <img class="section-image" src="\images\pages\services\ev-charging\crop-single-car-charging.jpg"
                 alt="An electric car being charged on a city street.">
             <h2 class="section-heading">Electrical Vehicle Charging</h2>
@@ -119,13 +119,13 @@
             <li>Commercial and fleet charging solutions</li>
             <li>Residential charging solutions </li>
         </ul>
-        <a class="learn-more" href="/pages/services/ev-charging.php">Learn More</a>
+        <a class="learn-more" href="/services/ev-charging">Learn More</a>
     </div>
 </div>
 <div class="banner">
     <p class="subsection-heading">
         Is the service you were looking for not listed above? Please give us a call at <a
-            href="tel:786-558-8033" class="text_link">786-558-8033</a> or <a href="/pages/contact.php"
+            href="tel:786-558-8033" class="text_link">786-558-8033</a> or <a href="/contact"
             class="text_link">send us a message</a> so we can discuss solving your unique request.
     </p>
 </div>

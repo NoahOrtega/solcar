@@ -25,7 +25,7 @@
         </div>
     </div>
     <!-- Certification banner -->
-    <a href="/pages/about/certifications.php">
+    <a href="/about/certifications">
     <div class="banner">
         <div class="logo-row">
 
@@ -49,12 +49,12 @@
                 Or do you need high tech troubleshooting for your company's data issues?
                 No matter what your electrical needs are, Solcar Electric, Inc. has you covered.
             </div>
-            <a href="/pages/services/our-services.php" class="service-read-more read-more-link">Read Our Full List Of
+            <a href="/services" class="service-read-more read-more-link">Read Our Full List Of
                 Services</a>
         </div>
         <div class="service-list">
             <div class="service-container">
-                <a class="service-top-link" href="/pages/services/electrical.php">
+                <a class="service-top-link" href="/services/electrical">
                     <div class="service-top">
                         <div class="service-icon"><i class="fas fa-bolt"></i> </div>
                         <div class="service-title">Electrical Work</div>
@@ -64,13 +64,13 @@
                     <div class="service-description"> You can trust our extensive experience for all things
                         electrical. We really do it all: electrical repairs, data and network
                         wiring, outdoor and indoor lighting, thermal scanning and reports, and so much more. </div>
-                    <a href="/pages/services/electrical.php" class="service-read-more read-more-link">Learn More</a>
+                    <a href="/services/electrical" class="service-read-more read-more-link">Learn More</a>
                 </div>
             </div>
 
             <div class="service-container">
                 <!-- TODO: fix both thermal scanning links -->
-                <a class="service-top-link" href="/pages/services/recertification.php">
+                <a class="service-top-link" href="/services/recertification">
                     <div class="service-top">
                         <div class="service-icon"><i class="fas fa-temperature-low"></i> </div>
                         <div class="service-title">Recertification Inspections</div>
@@ -81,12 +81,12 @@
                         We're certified to provide scanning reports for your business' 40 Year Recertification.
                         Cut your insurance premium with an infrared thermography inspection report for your building.
                     </div>
-                    <a href="/pages/services/recertification.php" class="service-read-more read-more-link">Learn More</a>
+                    <a href="/services/recertification" class="service-read-more read-more-link">Learn More</a>
                 </div>
             </div>
 
             <div class="service-container">
-                <a class="service-top-link" href="/pages/services/ev-charging.php">
+                <a class="service-top-link" href="/services/ev-charging">
                     <div class="service-top">
                         <div class="service-icon"><i class="fas fa-charging-station"></i> </div>
                         <div class="service-title">Electric Vehicle Charging</div>
@@ -97,12 +97,12 @@
                         for your home or business. As certified EcoXpert™ contractors, we'll help you protect our
                         environment and take a big step
                         towards the future of personal transportation.</div>
-                    <a href="/pages/services/ev-charging.php" class="service-read-more read-more-link">Learn More</a>
+                    <a href="/services/ev-charging" class="service-read-more read-more-link">Learn More</a>
                 </div>
             </div>
 
             <div class="service-container">
-                <a class="service-top-link" href="/pages/services/generators.php">
+                <a class="service-top-link" href="/services/generators">
                     <div class="service-top">
                         <div class="service-icon"><i class="fas fas fa-car-battery"></i> </div>
                         <div class="service-title">Generators</div>
@@ -112,12 +112,12 @@
                     <div class="service-description"> Protect yourself from the unpredictable weather of South
                         Florida! We're certified by major manufacturers to provide maintenance and to offer extended
                         warranties on new purchases. </div>
-                    <a href="/pages/services/generators.php" class="service-read-more read-more-link">Learn More</a>
+                    <a href="/services/generators" class="service-read-more read-more-link">Learn More</a>
                 </div>
             </div>
 
             <div class="service-container">
-                <a class="service-top-link" href="/pages/services/lighting.php">
+                <a class="service-top-link" href="/services/lighting">
                     <div class="service-top">
                         <div class="service-icon"><i class="far fa-lightbulb"></i> </div>
                         <div class="service-title">Lighting Maintenance</div>
@@ -128,7 +128,7 @@
                         to take care of all your business' lighting needs. We'll inspect your lights and lighting
                         equipment each month to ensure that everything is in good working order.
                     </div>
-                    <a href="/pages/services/lighting.php" class="service-read-more read-more-link">Learn More</a>
+                    <a href="/services/lighting" class="service-read-more read-more-link">Learn More</a>
                 </div>
             </div>
         </div>
@@ -157,7 +157,7 @@
                 <b> Luis J. Diaz </b> <br> <span>Commercial Property Manager <br>Sansone Group </span>
             </div>
             <div class="about-us-read-more">
-                <a class="read-more-link" href="/pages/about/testimonials.php">Read More</a>
+                <a class="read-more-link" href="/about/testimonials">Read More</a>
             </div>
         </div>
         <div class="about-us-container">
@@ -194,7 +194,7 @@
                 </li>
             </ul>
             <div class="about-us-read-more">
-                <a class="read-more-link" href="/pages/about/about-us.php">Read More</a>
+                <a class="read-more-link" href="/about/about-us">Read More</a>
             </div>
         </div>
     </section>

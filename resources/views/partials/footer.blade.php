@@ -14,7 +14,7 @@
 
         </div>
         <div class="footer-license-section top-footer-section">
-            Licensed, Bonded and Insured<br> Certification CC# EC13006051<br><br> Designed by <a href="https://github.com/NoahOrtega" target="_blank" rel="noopener noreferrer">Noah Ortega</a>
+            Licensed, Bonded and Insured<br> Certification CC# EC13006051<br><br> Designed by <a href="https://github.com/NoahOrtega" target="_blank" rel="noopener noreferrer">N Ortega</a>
         </div>
     </div>
     <div class="bottom-footer">
