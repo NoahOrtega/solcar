@@ -8,7 +8,9 @@
         <h2 class="section-heading">Email Us</h2>
         <div class="text email-explanation">Contact us today to make an appointment or to ask any questions regarding our services.</div>
 
-        <div class="mailform"></div>
+        <div class="mailform">
+            @include("mail-form.form")
+        </div>
     </div>
 
     <div class="location-info column">
