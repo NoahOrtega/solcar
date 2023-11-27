@@ -2,9 +2,7 @@
 @section('title')
     {{$title}} | Solcar Electric, Inc.
 @endsection
-@section('description')
-    {{$description}}
-@endsection
+@section('description', $description)
 @section('headmaster')
     <link href="/build/css/standard-page.css" rel="stylesheet">
     @yield('head')

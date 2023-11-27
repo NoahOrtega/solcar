@@ -1,6 +1,8 @@
 <?php
 
+use App\Mail\MyTestEmail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,28 +15,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/////////////////////////////////////////////////
+// PAGES /////////////////////////////////////////////////
+/////////////////////////////////////////////////
 
-//PAGES
+//Root pages
 Route::get('/', function () {
     return view('page.homepage')
     ->with('title','Solcar Electric, Inc. | Electrical contractor in the South Florida Area')
     ->with('description','Homepage of Solcar Electric, Inc. South Florida\'s provider of excellence in electrical contracting.');
 })->name('homepage');
-Route::get('/contact', function () {
-    return view('page.contact')
-    ->with('title','Contact Us')
-    ->with('description','Leave us a message or give us a call.');
-})->name('contact');
 Route::get('/terms', function () {
     return view('page.terms')
     ->with('title','Terms & Conditions')
     ->with('description','Solcar Electric, Inc. Terms and Conditions');
-    //TODO: Mail form
 })->name('terms');
 Route::get('/sitemap', function () {
     //TODO: Sitemap
 })->name('sitemap');
+//Mail form
+Route::get('/contact', [ContactController::class,'show'])->name('contact');
+Route::post('/contact', [ContactController::class,'mailContactForm']);
 
+//About pages
 Route::get('/about', function () {
     return view('page.about.about-us')
     ->with('title','About Solcar')
@@ -51,6 +54,7 @@ Route::get('/about/testimonials', function () {
     ->with('description','Testimonials from our satisfied clients.');
 })->name('testimonials');
 
+//Services pages
 Route::get('/services', function () {
     return view('page.service.our-services')
     ->with('title','Our Services')
