@@ -1,4 +1,4 @@
-@extends('standard-page', ['title'=> $title, 'description' => $description])
+@extends('standard-page', ['title'=> 'Contact Us', 'description' => 'Leave us a message or give us a call.'])
 @section('head')
 <link rel="stylesheet" href="/build/css/contact.css">
 @endsection
@@ -9,7 +9,34 @@
         <div class="text email-explanation">Contact us today to make an appointment or to ask any questions regarding our services.</div>
 
         <div class="mailform">
-            @include("mail-form.form")
+
+            <div class="container">
+                <div class="row">
+                <div class="col">
+                    @if (session('success'))
+                    <section class="thank-you">
+                        <h2>
+                            {{ session('success') }}
+                        </h2>
+                    </section>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger" style="color:red;">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <div class="col-12 col-md-6">
+                        @if (!session('success'))
+                            @yield('mailform')
+                        @endif
+                    </div>
+                </div>
+                </div>
+                </div>
         </div>
     </div>
 

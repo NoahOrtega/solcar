@@ -2,9 +2,7 @@
 @section('title')
     {{$title}}
 @endsection
-@section('description')
-    {{$description}}
-@endsection
+@section('description', $description)
 @section('headmaster')
     <link href="/build/css/homepage.css" rel="stylesheet">
     @yield('head')
