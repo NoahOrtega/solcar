@@ -21,3 +21,7 @@ mix
 .sass('resources/css/page/about/certifications.scss', 'public/build/css/')
 .sass('resources/css/page/about/our-team.scss', 'public/build/css/')
 .sass('resources/css/page/about/testimonials.scss', 'public/build/css/')
+
+//WEPAY
+mix
+.styles('resources/css/components/card-display.css', 'public/build/css/card-display.css').minify('public/build/css/card-display.min.css');

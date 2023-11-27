@@ -1,7 +1,7 @@
 <?php
 
-use App\Mail\MyTestEmail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ContactController;
 
 /*
@@ -36,6 +36,10 @@ Route::get('/sitemap', function () {
 //Mail form
 Route::get('/contact', [ContactController::class,'show'])->name('contact');
 Route::post('/contact', [ContactController::class,'mailContactForm']);
+//WEPAY
+Route::get('/paytest', [PaymentController::class,'show'])->name('pay');
+
+
 
 //About pages
 Route::get('/about', function () {
