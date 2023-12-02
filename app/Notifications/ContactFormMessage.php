@@ -39,15 +39,14 @@ class ContactFormMessage extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+        ->view('mail-form.office', [
+            'name' => $this->message->name,
+            'phone' => $this->message->phone ?? 'N/A',
+            'email' => $this->message->email ?? 'N/A',
+            'comment' => $this->message->comment,
+        ])
         ->subject('Web Inquiry from '.$this->message->name)
-        ->greeting("New Web Inquiry")
-        ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
-        ->line('Name: '. $this->message->name)
-        ->line('Phone: '. $this->message->phone ?? 'N/A')
-        ->line('Email: '. $this->message->email ?? 'N/A')
-        ->line('Comment: ')
-        ->line($this->message->comment)
-        ->salutation("");
+        ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
     }
 
     /**
