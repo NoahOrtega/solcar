@@ -13,5 +13,7 @@
     "/build/css/our-services.css": "/build/css/our-services.css",
     "/build/css/lighting.css": "/build/css/lighting.css",
     "/build/css/generators.css": "/build/css/generators.css",
-    "/build/css/ev-charging.css": "/build/css/ev-charging.css"
+    "/build/css/ev-charging.css": "/build/css/ev-charging.css",
+    "/build/css/card-display.css": "/build/css/card-display.css",
+    "/build/css/card-display.min.min.css": "/build/css/card-display.min.min.css"
 }
