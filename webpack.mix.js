@@ -21,6 +21,11 @@ mix
 .sass('resources/css/page/about/certifications.scss', 'public/build/css/')
 .sass('resources/css/page/about/our-team.scss', 'public/build/css/')
 .sass('resources/css/page/about/testimonials.scss', 'public/build/css/')
-//credit card
+//wepay
 mix
-.styles('resources/css/components/card-display.css', 'public/build/css/card-display.css').minify('public/build/css/card-display.css');
+.styles('resources/css/components/card-display.css', 'public/build/css/card-display.css').minify('public/build/css/card-display.css')
+.sass('resources/css/page/payment/payment.scss', 'public/build/css/')
+.sass('resources/css/page/payment/checkout.scss', 'public/build/css/')
+.js('resources/js/components/creditcardform.js', 'build/assets/js/creditcardform.js')
+.js('resources/js/wepayFunctions.js', 'build/assets/js/wepayFunctions.js')
+

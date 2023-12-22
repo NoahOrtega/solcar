@@ -52,12 +52,13 @@ class PaymentController extends Controller
             return redirect()->route('pay');
         }
 
-        return view('page.pay.checkout2')
+        return view('page.pay.checkout')
             ->with('uid', $UID)
             ->with('subtotal', session('subtotal'))
             ->with('surcharge', session('surcharge'))
             ->with('total', session('total'));
     }
+
 
 
     //Submits payment token via WePay api call,

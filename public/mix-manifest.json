@@ -1,10 +1,13 @@
 {
-    "/build/css/electrical.css": "/build/css/electrical.css",
+    "/build/assets/js/creditcardform.js": "/build/assets/js/creditcardform.js",
+    "/build/assets/js/wepayFunctions.js": "/build/assets/js/wepayFunctions.js",
     "/build/css/sitemap.css": "/build/css/sitemap.css",
     "/build/css/contact.css": "/build/css/contact.css",
     "/build/css/homepage.css": "/build/css/homepage.css",
     "/build/css/standard-page.css": "/build/css/standard-page.css",
     "/build/css/main.css": "/build/css/main.css",
+    "/build/css/checkout.css": "/build/css/checkout.css",
+    "/build/css/payment.css": "/build/css/payment.css",
     "/build/css/testimonials.css": "/build/css/testimonials.css",
     "/build/css/our-team.css": "/build/css/our-team.css",
     "/build/css/certifications.css": "/build/css/certifications.css",
@@ -14,6 +17,7 @@
     "/build/css/lighting.css": "/build/css/lighting.css",
     "/build/css/generators.css": "/build/css/generators.css",
     "/build/css/ev-charging.css": "/build/css/ev-charging.css",
+    "/build/css/electrical.css": "/build/css/electrical.css",
     "/build/css/card-display.css": "/build/css/card-display.css",
-    "/build/css/card-display.min.min.css": "/build/css/card-display.min.min.css"
+    "/build/css/card-display.min.css": "/build/css/card-display.min.css"
 }

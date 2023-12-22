@@ -37,7 +37,13 @@ Route::get('/sitemap', function () {
 Route::get('/contact', [ContactController::class,'show'])->name('contact');
 Route::post('/contact', [ContactController::class,'mailContactForm']);
 //WEPAY
-Route::get('/paytest', [PaymentController::class,'show'])->name('pay');
+Route::get ('/pay', [PaymentController::class,'showPaymentPage'])->name('pay');
+Route::post('/pay/confirm', [PaymentController::class,'confirmPrice']);
+Route::get ('/pay/checkout', [PaymentController::class,'showCheckoutPage'])->name('checkout');
+Route::post('/pay/checkout/checkout', [PaymentController::class,'confirmCheckout']);
+
+//TODO: disable
+// Route::get ('/register/customforamaury', [PaymentController::class,'registerUser']);
 
 
 
