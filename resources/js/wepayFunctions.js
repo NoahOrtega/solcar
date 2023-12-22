@@ -1,6 +1,4 @@
 (function () {
-    WePay.set_endpoint(environmentType); // change to "production" when live
-
     // Shortcuts
     var d = document;
     (d.id = d.getElementById),
@@ -16,9 +14,10 @@
         }
     };
 
-    embedWePay();
+    //embed wepay credit iframe
+    var creditCard = embedWePay();
 
-    // Attach the event to the DOM
+    // When user submits, tokenize into payment method & check validity. Send token to controller.
     addEvent(d.id("submit-button"), "click", function () {
         const name = valueById("firstname") + " " + valueById("lastname");
         const email = valueById("email");
@@ -28,48 +27,35 @@
         const city = valueById("city");
         const postal_code = valueById("zip");
 
-        response = WePay.credit_card.create(
-            {
-                client_id: myAppId,
-                user_name: name,
-                email: email,
-                cc_number: valueById("cardnumber"),
-                cvv: valueById("securitycode"),
-                expiration_month: valueById("expirationdate").substr(0, 2),
-                expiration_year: valueById("expirationdate").substr(-2, 2),
-                address: {
-                    postal_code: postal_code,
-                    city: city,
+        creditCard
+            .tokenize()
+            .then(function (response) {
+                //get the promise response from the console
+                console.log("response", JSON.stringify(response));
+                var node = document.createElement("div");
+
+                const formData = {
+                    name: name,
+                    email: email,
+                    line1: line1,
+                    line2: line2,
                     region: region,
-                },
-            },
-            function (data) {
-                if (data.error) {
-                    console.log(data);
+                    city: city,
+                    postal_code: postal_code,
+                    payment_token: response.id,
+                };
 
-                    if (data.error_code == 1003) {
-                        console.log("Invalid card number");
-                    }
-                    //TODO: handle more form errors
-                } else {
-                    console.log(data);
-                    // call your own app's API to save the token inside the data;
-
-                    const formData = {
-                        name: name,
-                        email: email,
-                        line1: line1,
-                        line2: line2,
-                        region: region,
-                        city: city,
-                        postal_code: postal_code,
-                        card_id: data.credit_card_id,
-                    };
-
-                    confirmPayment(formData);
+                confirmPayment(formData);
+            })
+            .catch(function (error) {
+                console.log("error", error);
+                // Move the focus to the first error
+                if (Array.isArray(error)) {
+                    let key = error[0].target[0];
+                    creditCard.setFocus(key);
                 }
-            }
-        );
+                //TODO: test for every error
+            });
     });
 
     function embedWePay() {
@@ -134,28 +120,6 @@
             },
         };
 
-        if (options.use_one_liner) {
-            custom_style = {
-                styles: {
-                    "cc-logo": {
-                        base: {
-                            margin: "12px 12px 7px 12px",
-                        },
-                    },
-                    "cc-mask": {
-                        base: {
-                            margin: "12px 12px 7px 12px",
-                        },
-                    },
-                    "cvv-icon": {
-                        base: {
-                            display: "none",
-                        },
-                    },
-                },
-            };
-        }
-
         //credit card iframe configs
         var error = WePay.configure("stage", myAppId, apiVersion);
         if (error) {
@@ -163,8 +127,11 @@
         }
 
         var iframe_container_id = "credit_card_iframe";
-        var creditCard = WePay.createCreditCardIframe(iframe_container_id, options);
-
+        var creditCard = WePay.createCreditCardIframe(
+            iframe_container_id,
+            options
+        );
+        return creditCard;
     }
 
     function confirmPayment(formData) {
@@ -193,3 +160,46 @@
             });
     }
 })();
+
+// response = WePay.credit_card.create(
+//     {
+//         client_id: myAppId,
+//         user_name: name,
+//         email: email,
+//         cc_number: valueById("cardnumber"),
+//         cvv: valueById("securitycode"),
+//         expiration_month: valueById("expirationdate").substr(0, 2),
+//         expiration_year: valueById("expirationdate").substr(-2, 2),
+//         address: {
+//             postal_code: postal_code,
+//             city: city,
+//             region: region,
+//         },
+//     },
+//     function (data) {
+//         if (data.error) {
+//             console.log(data);
+
+//             if (data.error_code == 1003) {
+//                 console.log("Invalid card number");
+//             }
+//             //TODO: handle more form errors
+//         } else {
+//             console.log(data);
+//             // call your own app's API to save the token inside the data;
+
+//             const formData = {
+//                 name: name,
+//                 email: email,
+//                 line1: line1,
+//                 line2: line2,
+//                 region: region,
+//                 city: city,
+//                 postal_code: postal_code,
+//                 card_id: data.credit_card_id,
+//             };
+
+//             confirmPayment(formData);
+//         }
+//     }
+// );
