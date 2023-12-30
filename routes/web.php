@@ -36,9 +36,8 @@ Route::get('/sitemap', function () {
 //Mail form
 Route::get('/contact', [ContactController::class,'show'])->name('contact');
 Route::post('/contact', [ContactController::class,'mailContactForm']);
-//WEPAY
-Route::get('/paytest', [PaymentController::class,'show'])->name('pay');
-
+//PAY
+Route::get('/pay', [PaymentController::class,'show'])->name('pay');
 
 
 //About pages

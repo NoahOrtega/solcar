@@ -23,4 +23,4 @@ mix
 .sass('resources/css/page/about/testimonials.scss', 'public/build/css/')
 //credit card
 mix
-.styles('resources/css/components/card-display.css', 'public/build/css/card-display.css').minify('public/build/css/card-display.css');
+.sass('resources/css/page/payment.scss', 'public/build/css/');
