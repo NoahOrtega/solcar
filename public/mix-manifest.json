@@ -13,5 +13,6 @@
     "/build/css/our-services.css": "/build/css/our-services.css",
     "/build/css/lighting.css": "/build/css/lighting.css",
     "/build/css/generators.css": "/build/css/generators.css",
-    "/build/css/ev-charging.css": "/build/css/ev-charging.css"
+    "/build/css/ev-charging.css": "/build/css/ev-charging.css",
+    "/build/css/payment.css": "/build/css/payment.css"
 }

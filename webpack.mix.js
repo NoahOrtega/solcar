@@ -2,6 +2,7 @@
 const mix = require('laravel-mix');
 
 mix
+.disableNotifications()
 //master style
 .sass('resources/css/main.scss', 'public/build/css/main.css')
 .sass('resources/css/standard-page.scss', 'public/build/css/standard-page.css')
@@ -22,5 +23,4 @@ mix
 .sass('resources/css/page/about/our-team.scss', 'public/build/css/')
 .sass('resources/css/page/about/testimonials.scss', 'public/build/css/')
 //credit card
-mix
 .sass('resources/css/page/payment.scss', 'public/build/css/');
