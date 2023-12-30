@@ -11,23 +11,25 @@
     <div class="banner">
         <h2>We Accept The Following Payment Options:</h2>
         <ol class="payment-options">
-            <li>Checks made out for "Solcar Electric, Inc." mailed to "13500 SW 134th Ave, Unit 7A. Miami, FL 33186"</li>
+            <li>Checks made out to "Solcar Electric, Inc." mailed to "13500 SW 134th Ave, Unit 7A. Miami, FL 33186"</li>
             <div class="basic-img-container" style="max-width: 400px">
                 <img src="/images/pages/payment/solcar check.png" alt="A check addressed to Solcar">
             </div>
-            <li>Zelle payments to the account number "786-921-6060". Just scan the QR Code below:</li>
-            <div class="basic-img-container" style="justify-content: start;">
+            <li>Zelle payments to the account number "786-921-6060".
+                {{-- Just scan the QR Code below: --}}
+            </li>
+            {{-- <div class="basic-img-container" style="justify-content: start;">
                 <img src="/images/pages/payment/zelle qr.png" alt="Solcar Zelle QR Code">
-            </div>
+            </div> --}}
             <li>Credit or debit payment through PayPal. </li>
         </ol>
     </div>
 
     <h2 id="paypal">Online Payment with PayPal</h2>
-    <div class="paragraph">
+    {{-- <div class="paragraph">
         While we are happy to provide PayPal as an option to our clients, a portion of your payment is lost to processing fees.
         <br>Consider one of the other payment methods found above if they are convenient for you.
-    </div>
+    </div> --}}
     <div class="paragraph">
         To pay your invoice through PayPal click the PayPal icon below.
         <br>Please include your invoice number in the "Item Description".

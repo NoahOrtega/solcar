@@ -34,17 +34,7 @@
         <a href="\contact" class="navbar__link">Contact</a>
     </li>
     <li class="navbar__option navbar__parent-option">
-        <form id="paypalForm" action="https://www.paypal.com/cgi-bin/webscr?amount=29.95" method="post">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="2UUVEQ3BAYNNA">
-            <!-- <button class="navbar__link pay_button" name="submit">pay</button> -->
-            <a class="navbar__link pay-link" onclick="submitForm()">Pay</a>
-        </form>
-        <script language="JavaScript" type="text/javascript">
-            function submitForm() {
-                document.getElementById("paypalForm").submit();
-            }
-        </script>
+        <a href="\pay" class="navbar__link">Pay</a>
     </li>
 </nav>
 <script language="JavaScript" type="text/javascript">
