@@ -42,7 +42,7 @@
 <div class="info-section">
     <h3 class="subsection-heading">Certification</h3>
     <div class="text">
-        Solcar Electric Inc is licensed, bonded and insured. We are a certified Generac and Briggs and Stratton service and sales dealer, EcoXpert™
+        Solcar Electric Inc is licensed, bonded and insured. We are a certified Generac and Briggs and Stratton service and sales dealer, EcoXpert
         certified by Schneider Electric, and an EPA lead-safe certified firm.
         <br><a class="read-more" href="/about/certifications">Read more about our certifications</a>
     </div>

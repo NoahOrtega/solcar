@@ -92,7 +92,7 @@
                 </a>
                 <div class="service-bottom">
                     <div class="service-description">Take a look at our electric vehicle charging solutions
-                        for your home or business. As certified EcoXpert™ contractors, we'll help you protect our
+                        for your home or business. As certified EcoXpert contractors, we'll help you protect our
                         environment and take a big step
                         towards the future of personal transportation.</div>
                     <a href="/services/ev-charging" class="service-read-more read-more-link">Learn More</a>
@@ -186,7 +186,7 @@
                 </li>
                 <li class="about-point">
                     <i class="fas fa-award"></i>
-                    <p> We're EcoXpert™ certified by Schneider Electric, a certified
+                    <p> We're EcoXpert certified by Schneider Electric, a certified
                         Generac and Briggs and Stratton dealer, and an EPA lead-safe certified firm.
                     </p>
                 </li>

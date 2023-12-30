@@ -7,7 +7,7 @@
     Electric vehicles represent a crucial step in reducing the world's energy waste and
     protecting our environment. As they soar in popularity, Solcar Electric is here to help
     you move towards the future by providing electric vehicle charging solutions for your home or business.
-    We are proud to be a certified EcoXpert™ contractor, allowing us offer you a range of
+    We are proud to be a certified EcoXpert contractor, allowing us offer you a range of
     residential, commercial, and fleet charging solutions. Our EVlink charging stations are supported by
     installation and maintenance.
 </p>
@@ -15,11 +15,11 @@
 <div class="flex-quote">
 <div class="quote-image-section" style="order: 2; flex: 1;">
         <img class="eco-image" src="\images\pages\services\ev-charging\schneider-ecoxpert.jpg"
-            alt="Text reads: Eco-Xpert™. Certified by Schneider Electric">
+            alt="Text reads: Eco-Xpert. Certified by Schneider Electric">
     </div>
     <div class="quote-section" style="flex: 3; order: 1;" >
         <p class="text quote-text"> "The need for a robust electric vehicle charging infrastructure has never been more
-            crucial. Schneider Electric EVlink™ charging solutions empower electric vehicle drivers with a
+            crucial. Schneider Electric EVlink charging solutions empower electric vehicle drivers with a
             best-in-class, dependable way to charge their cars at home or on the go. Sustainable driving is
             an important step in decreasing energy waste, reducing greenhouse gas emissions, and combating
             the harmful effects of global warming. With the number of electric vehicles on the rise and the
