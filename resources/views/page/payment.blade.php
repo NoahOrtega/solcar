@@ -1,4 +1,4 @@
-@extends('standard-page', ['title' => 'Make a Payment', 'description' => 'Make a payment to Solcar Electric, Inc. Processed and secured via Chase WePay.'])
+@extends('standard-page', ['title' => 'Make a Payment', 'description' => 'Make a payment to Solcar Electric, Inc.'])
 @section('head')
     <link rel="stylesheet" href="/build/css/payment.css">
 @endsection

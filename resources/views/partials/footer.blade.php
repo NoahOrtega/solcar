@@ -18,6 +18,7 @@
         </div>
     </div>
     <div class="bottom-footer">
-        © 2013-2022 Solcar Electric, Inc. | <a href='/terms'>Terms of Service</a> | <a href='/sitemap'>Site Map</a>
+        © 2013-<?php echo date("Y"); ?> Solcar Electric, Inc. | <a href='/terms'>Terms of Service</a> |
+        {{-- <a href='/sitemap'>Site Map</a> --}}
     </div>
 </div>
