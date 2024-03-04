@@ -2,6 +2,10 @@
 @section('head')
 <link rel="stylesheet" href="/build/css/payment.css">
 <script type="text/javascript" src="/scripts/checkout.js"></script>
+<script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
 <script>
     var clientKey = "{{{env('ACCEPT_PUBLIC_CLIENT_KEY')}}}";
     var apiLoginID = "{{{env('AUTHORIZE_API_LOGIN_ID')}}}";
@@ -22,88 +26,98 @@
             <div class="heading">Total Charge:</div><div class="price">${{number_format((float)$total, 2, '.', '')}} USD</div>
         </div>
     </div>
-    {{$invoice}}
 </div>
-
-<form class="form">
+<div id="payment-form-errors" class="form-errors hidden">
+    <p>Field Errors:</p>
+    <ul id="form-errors-list">
+    </ul>
+</div>
+<div class="form-container">
+<form id="checkoutForm" class="form"
+    method="POST"
+    action="/pay/checkout/confirm"  >
     {{ csrf_field() }}
 {{-- <h2>Contact Information</h2> --}}
-<div class="form-container personal-container">
+<div class="personal-container">
     <div class="field-container" style="grid-area: company;">
         <label for="company">Company (Optional)</label>
-        <input id="company" maxlength="50" type="text" autocomplete="organization" >
+        <input id="company" name="company" maxlength="50" type="text" autocomplete="organization" >
     </div>
 
     <div class="field-container" style="grid-area: fname;">
-        <label for="firstname">First Name</label>
-        <input id="firstname" maxlength="30" type="text" autocomplete="given-name" reuired>
+        <label for="firstName">First Name</label>
+        <input  id="firstName" name="firstName" maxlength="30" type="text" autocomplete="given-name" required>
     </div>
     <div class="field-container" style="grid-area: lname;">
-        <label for="lastname">Last Name</label>
-        <input id="lastname" maxlength="30" type="text" autocomplete="family-name" reuired>
+        <label for="lastName">Last Name</label>
+        <input  id="lastName" name="lastName" maxlength="30" type="text" autocomplete="family-name" required>
     </div>
 
     <div class="field-container" style="grid-area: email;">
         <label for="email">Email Address</label>
-        <input id="email" name="email" maxlength="50" type="email"  autocomplete="email" reuired>
+        <input  id="email" name="email" maxlength="50" type="email"  autocomplete="email" required>
     </div>
 
     <div class="field-container" style="grid-area: phone;">
         <label for="phone">Phone Number (Optional)</label>
-        <input id="phone" name="phone" maxlength="20" type="text" pattern="[0-9\-()]*" autocomplete="tel">
+        <input id="phone" name="phone" maxlength="25" type="text" autocomplete="tel">
     </div>
 </div>
 {{-- <h2>Payment Information</h2> --}}
 
-<div class="form-container payment-container">
+<div class="payment-container">
     <div class="field-container" style="grid-area: number;">
-        <label for="cardnumber">Card Number</label><span id="generatecard" style="display:none;"></span>
-        <input id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
-        <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink">
-        </svg>
+        <label for="cardNumber">Card Number</label>
+        <input id="cardNumber" inputmode="numeric" required>
     </div>
     <div class="field-container" style="grid-area: exp-month;">
-        <label for="expirationmonth">Expiration Month (MM)</label>
-        <input id="expirationmonth" type="text" pattern="[0-9]*" inputmode="numeric">
+        <label for="month">Expiration (MM)</label>
+        <input id="month" maxlength="2" inputmode="numeric" required>
     </div>
     <div class="field-container" style="grid-area: exp-year;">
-        <label for="expirationyear">Expiration Year (YY)</label>
-        <input id="expirationyear" type="text" pattern="[0-9]*" inputmode="numeric">
+        <label for="year">Expiration (YY)</label>
+        <input id="year" maxlength="2" inputmode="numeric" required>
     </div>
     <div class="field-container" style="grid-area: security;">
-        <label for="securitycode">Security Code</label>
-        <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+        <label for="cardCode">Security Code</label>
+        <input id="cardCode" maxlength="4" inputmode="numeric" required>
     </div>
+
 
     <div class="field-container" style="grid-area: street;">
         <label for="street">Street Address</label>
-        <input id="street" type="text" reuired>
+        <input id="street" name="street" type="text" maxlength="50" required>
     </div>
-
     <div class="field-container" style="grid-area: apartment;">
         <label for="apartment">Apartment, suite, ect. (Optional)</label>
-        <input id="apartment" type="text">
+        <input id="apartment" name="apartment" type="text" maxlength="20">
     </div>
 
     <div class="field-container" style="grid-area: zip;">
         <label for="zip">Zip Code</label>
-        <input id="zip" pattern="^\d{5}$" minlength="5" maxlength="5" inputmode="numeric" reuired>
+        <input  id="zip" name="zip" inputmode="numeric" maxlength="10" required>
     </div>
     <div class="field-container" style="grid-area: city;">
         <label for="city">City</label>
-        <input id="city" type="text" reuired>
+        <input  id="city" name="city" type="text" maxlength="20" required>
     </div>
     <div class="field-container" style="grid-area: state;">
         <label for="state">State</label>
-        <input id="state" type="text" value="FL" disabled>
+        <input id="state" name="state" type="text" value="FL" maxlength="2" readonly required>
+    </div>
+
+        <input type="hidden" id="dataDescriptor" name="dataDescriptor" type="text" readonly>
+        <input type="hidden" id="dataValue" name="dataValue" type="text" readonly>
+
+    <div class="button-container" style="grid-area: button;">
+        <button type="button" class="submit-button" onclick="attemptSubmission()">Confirm</button>
     </div>
 </div>
-
-<button type="button" onclick="sendPaymentDataToAnet()">Submit</button>
 </form>
-
-<script type="text/javascript" src="https://jstest.authorize.net/v1/Accept.js" charset="utf-8"></script>
-{{-- TODO: replace with production script src="https://js.authorize.net/v1/Accept.js" --}}
-{{-- TODO: Validate data --}}
+</div>
+@if (env('APP_ENV') === 'local')
+    <script type="text/javascript" src="https://jstest.authorize.net/v1/Accept.js" charset="utf-8"></script>
+@else
+    <script type="text/javascript" src="https://js.authorize.net/v1/Accept.js" charset="utf-8"></script>
+@endif
 @endsection

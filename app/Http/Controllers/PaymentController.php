@@ -8,7 +8,7 @@ use net\authorize\api\controller as AnetController;
 
 class PaymentController extends Controller
 {
-    function setPrice($price)
+    private function setPrice($price)
     {
         $surcharge = round($price * ((env('SURCHARGE_PERCENTAGE_AS_INT') / 100.0)), 2);
         $total = $price + $surcharge;
@@ -18,7 +18,7 @@ class PaymentController extends Controller
         session(['total' => $total]);
         session(['payment-ID' => (substr(session()->getId().$price,-20))]);
     }
-    function clearSession()
+    private function clearSession()
     {
         session(['invoice' => ""]);
         session(['subtotal' => null]);
@@ -37,9 +37,16 @@ class PaymentController extends Controller
     //On confirmation of price, create a UID based on price and session, save it to the session
     public function confirmPrice(Request $request)
     {
+        $request->validate([
+            'payment' => 'required|numeric|min:1|max:2000000',
+            'invoice' => 'nullable|numeric|digits:5',
+        ]);
+
+
+
         session(['invoice' => $request->invoice]);
 
-        $price = $request->price;
+        $price = $request->payment;
         if (is_numeric($price) && $price > 0) {
             $this->setPrice(round($price, 2));
             return redirect()->route('checkout');
@@ -64,6 +71,24 @@ class PaymentController extends Controller
             ->with('invoice', session('invoice'));
     }
 
+    public function validateCheckoutForm(Request $request) {
+        $validator = $request->validate([
+            'company' => 'nullable|max:50',
+            'firstName' => 'required|max:30',
+            'lastName' => 'required|max:30',
+            'email' => 'required|email|max:50',
+            'phone' => 'nullable|max:25|regex:/^[0-9\W]+$/',
+            'street' => 'nullable|max:50',
+            'apartment' => 'nullable|max:20',
+            'zip' => 'required|min:5|max:10|regex:/^[0-9\W]+$/',
+            'city' => 'required|max:20|',
+            'state' => 'required|min:2|max:2'
+        ]);
+
+        // If validation passes, return a success response
+        return response()->json(['success' => 'Data is valid']);
+    }
+
     //Submits payment token via WePay api call,
     //display success or failure message. email solcar and the user that a transaction has been made
     public function confirmCheckout(Request $request)
@@ -75,15 +100,15 @@ class PaymentController extends Controller
         $dataValue = $request->dataValue;
 
         $refId = session('payment-ID');
-        $invoiceNumber = session('invoice');
+        $invoiceNumber = session('invoice') ?? "";
 
         $firstName =$request->firstName;
         $lastName = $request->lastName;
         $company = $request->company;
-        $phone = $request->phone;
         $email = $request->email;
+        $phone = $request->phone;
 
-        $address = $request->address;
+        $address = $request->street.' '.$request->apartment;
         $city = $request->city;
         $zip = $request->zip;
 
@@ -127,7 +152,7 @@ class PaymentController extends Controller
         //should we email the customer
         $doEmailCustomerSetting = new AnetAPI\SettingType();
         $doEmailCustomerSetting->setSettingName("emailCustomer");
-        $doEmailCustomerSetting->setSettingValue(false);
+        $doEmailCustomerSetting->setSettingValue(true);
 
         //email header text
         $headerEmailSetting = new AnetAPI\SettingType();
@@ -162,30 +187,25 @@ class PaymentController extends Controller
 
         //process the response
         if($response != null) {
-            $total = session('total');
+            $total = session('subtotal');
+            $invoice = session('invoice');
             $this->clearSession();
+            $success = false;
+            $code = $response->getMessages()->getMessage()[0]->getCode();
             if ($response->getMessages()->getResultCode() == "Ok") {
-                // $this->clearSession();
-                return ($response->getMessages()->getMessage()[0]);
-            }
-            else if ($response->getMessages()->getResultCode() == "Error"){
-                //returned error
-                // return redirect()->route('target.route.name')
-                //     ->with('success', false)
-                //     ->with('code', $response->getMessages()->getMessage()[0]->getCode())
-                //     ->with('price');
-                return ($response->getMessages()->getMessage()[0]);
+                if("I00001" == $code) {
+                    $success = true;
+                }
             }
         } else {
-            //no response
-            return ('{"Error":"Authorize api did not return a response"}');
+            $code = "NoResponse";
         }
-        return($response);
-    }
 
-    public function showResultPage()
-    {
-        $this->clearSession();
-        return view('page.about.about-us');
+        return view('page.pay.result')
+                    ->with('success', $success)
+                    ->with('code', $code)
+                    ->with('totalPrice', $total)
+                    ->with('email', $email)
+                    ->with('invoiceNum', $invoice);
     }
 }

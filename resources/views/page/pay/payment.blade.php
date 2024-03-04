@@ -33,23 +33,35 @@
     </div>
 
     <div class="form-container">
-        <form class="form" method="POST" action="/pay/confirm">
+        <div class="form-errors">
+            @if (count($errors) != 0)
+                <p>Field Errors:</p>
+            @endif
+            <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+        </div>
+
+        <form class="start-container" method="POST" action="/pay/confirm">
             {{ csrf_field() }}
             <div class="input-section">
                 <div class="field-container" >
                     {{-- TODO: check if invoice number should be required --}}
                     <label for="invoice">Invoice Number:</label>
-                    <input type="number" class="form-control" id="invoice" placeholder="00000000" step="1" min="0" max="9999999999" name="invoice" required>
+                    <input class="form-control" id="invoice" placeholder="00000" maxlength="5" name="invoice">
                 </div>
                 <br>
                 <div class="field-container" >
-                    <label for="price">Payment Amount:</label>
-                    <input type="number" class="form-control" id="price" placeholder="0.00" step="0.01" min="0.01" max="2000000" name="price" required>
+                    <label for="payment">Payment Amount:</label>
+                    <input type="number" class="form-control" id="payment" placeholder="0.00" step="0.01" min="0.01" name="payment">
                 </div>
-
-                <button type="submit" class="submit-button" value="Send">Continue</button>
-            </div>
+                <div class="button-container">
+                    <button type="submit" class="submit-button" value="Send">Continue</button>
+                </div>
         </form>
+        </div>
     </div>
 
 @endsection

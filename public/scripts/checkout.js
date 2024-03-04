@@ -1,17 +1,60 @@
+function attemptSubmission() {
+
+    let formData = $("#checkoutForm").serialize();
+
+    console.log(formData);
+
+    $.ajax({
+        url: '/pay/checkout/validate',
+        type: 'POST',
+        headers: {'X-CSRF-TOKEN': myCSRF},
+        data: formData,
+        success: function(response) {
+            // If validation succeeds, do something
+            //remove all errors
+            $('.field-container').removeClass('field-error');
+            $("#form-errors-list").empty();
+            sendPaymentDataToAnet()
+        },
+        error: function(xhr) {
+            //show error box
+
+            //remove previous errors
+            $('.field-container').removeClass('field-error');
+            $("#form-errors-list").empty();
+
+            var errors = xhr.responseJSON.errors;
+            $.each(errors, function(fieldName, messages) {
+                // Highlight the field
+                var $field = $('[name="' + fieldName + '"]');
+                $field.closest('.field-container').addClass('field-error');
+
+                //display error messages
+                $.each(messages, function( _, message) {
+                    $("#form-errors-list").append("<li>"+message+"</li>");
+                })
+            });
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+        }
+    });
+    $('#payment-form-errors').removeClass('hidden');
+}
+
+
 function sendPaymentDataToAnet() {
     var authData = {};
 	authData.clientKey = clientKey
 	authData.apiLoginID = apiLoginID
 
-    let fname = document.getElementById("firstname").value;
-    let lname = document.getElementById("lastname").value;
+    let fname = document.getElementById("firstName").value;
+    let lname = document.getElementById("lastName").value;
     let fullName = fname+" "+lname;
 
     var cardData = {};
-	cardData.cardNumber = document.getElementById("cardnumber").value;
-	cardData.month = document.getElementById("expirationmonth").value;
-	cardData.year = document.getElementById("expirationyear").value;
-	cardData.cardCode = document.getElementById("securitycode").value;
+	cardData.cardNumber = document.getElementById("cardNumber").value;
+	cardData.month = document.getElementById("month").value;
+	cardData.year = document.getElementById("year").value;
+	cardData.cardCode = document.getElementById("cardCode").value;
 	cardData.zip = document.getElementById("zip").value;
 	cardData.fullName = fullName;
 
@@ -22,51 +65,49 @@ function sendPaymentDataToAnet() {
     Accept.dispatchData(secureData, responseHandler);
 }
 
+let codeMap = {
+    E_WC_05 : ["cardNumber"],
+    E_WC_06 : ["month"],
+    E_WC_07 : ["year"],
+    E_WC_08 : ["year","month"],
+    E_WC_15 : ["cardCode"],
+    E_WC_16 : ["zip"],
+    E_WC_17 : ["firstName", "lastName"],
+};
+
 function responseHandler(response) {
-    if (response.messages.resultCode==="Error") {
+    if (response.messages.resultCode==="Error") { //Accept.js error
         for (let index = 0; index < response.messages.message.length; index++) {
-            console.log(
-                response.messages.message[index].code + ": " +
-                response.messages.message[index].text
-            );
-        }
-    } else {
-        var data = response.opaqueData;
-        data.email = document.getElementById("email").value;
-        data.phone = document.getElementById("phone").value;
-        data.firstName = document.getElementById("firstname").value;
-        data.lastName = document.getElementById("lastname").value;
-        data.company = document.getElementById("company").value;
-        data.address = document.getElementById("street").value +" "+ document.getElementById("apartment").value;
-        data.city = document.getElementById("city").value;
-        data.zip = document.getElementById("zip").value;
-        confirmPayment(data);
-    }
-}
+            let code = response.messages.message[index].code;
+            if(codeMap.hasOwnProperty(code)) { //display error for user
+                $("#form-errors-list").append("<li>"+response.messages.message[index].text+"</li>");
 
-function confirmPayment(data) {
-    const url = "/pay/checkout/confirm";
-    const requestOptions = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-Token": myCSRF,
-        },
-        body: JSON.stringify(data),
-    };
-
-    fetch(url, requestOptions)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error(response);
+                $.each(codeMap[code], function (_, fieldId) {
+                    var $field = $('#' + fieldId);
+                    $field.closest('.field-container').addClass('field-error');
+                });
             }
-            return response.json(); // Parse response body as JSON
-        })
-        .then((data) => {
-            console.log("Checkout Response:", data);
-        })
-        .catch((error) => {
-            console.error("Unable to confirm payment", error);
-        });
+            else {
+                $("#form-errors-list").append(
+                    "<li> unexpected error: "+code+
+                    ". transaction canceled, please report to office@solcarelectric.com</li>");
+            }
+        }
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+    } else { //Accept.js success
+        $('#payment-form-errors').addClass('hidden');
+
+        // clear sensitive data
+        document.getElementById("cardNumber").value = "";
+        document.getElementById("month").value = "";
+        document.getElementById("year").value = "";
+        document.getElementById("cardCode").value = "";
+
+        //input opaque data
+        document.getElementById("dataDescriptor").value = response.opaqueData.dataDescriptor;
+        document.getElementById("dataValue").value = response.opaqueData.dataValue;
+
+        document.getElementById("checkoutForm").submit();
+    }
 }
 
