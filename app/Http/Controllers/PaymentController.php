@@ -25,6 +25,12 @@ class PaymentController extends Controller
         session(['surcharge' => null]);
         session(['total' => null]);
         session(['payment-ID' => null]);
+
+        session(['receipt-success' => null]);
+        session(['receipt-code' => null]);
+        session(['receipt-totalPrice' => null]);
+        session(['receipt-email' => null]);
+        session(['receipt-invoiceNum' => null]);
     }
 
     //Provides the payment start page. Resets the transaction ID on load
@@ -189,7 +195,6 @@ class PaymentController extends Controller
         if($response != null) {
             $total = session('subtotal');
             $invoice = session('invoice');
-            $this->clearSession();
             $success = false;
             $code = $response->getMessages()->getMessage()[0]->getCode();
             if ($response->getMessages()->getResultCode() == "Ok") {
@@ -201,11 +206,18 @@ class PaymentController extends Controller
             $code = "NoResponse";
         }
 
-        return view('page.pay.result')
-                    ->with('success', $success)
-                    ->with('code', $code)
-                    ->with('totalPrice', $total)
-                    ->with('email', $email)
-                    ->with('invoiceNum', $invoice);
+        $this->clearSession();
+        session(['receipt-success' => $success]);
+        session(['receipt-code' => $code]);
+        session(['receipt-totalPrice' => $total]);
+        session(['receipt-email' => $email]);
+        session(['receipt-invoiceNum' => $invoice]);
+
+        return redirect()->route('checkout-result');
+        // ->with('receipt-success', $success)
+        // ->with('receipt-code', $code)
+        // ->with('receipt-totalPrice', $total)
+        // ->with('receipt-email', $email)
+        // ->with('receipt-invoiceNum', $invoice);
     }
 }

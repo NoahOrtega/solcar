@@ -1,5 +1,6 @@
 @import "../variables";
 
+
 h2 {
     margin-bottom: .5rem;
 }
@@ -27,6 +28,17 @@ h2 {
     }
 }
 
+.img-wrapper {
+    width: 100%;
+    padding: 20px;
+    // overflow: hidden;
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+}
 
 .charges-container {
     margin: 0 auto;
@@ -188,5 +200,11 @@ h2 {
         top: calc(50% - 17px);
         width: 60px;
     }
+}
 
+.receipt {
+    a {
+        color: $text-link-color-darker;
+        // font-weight: lighter;
+    }
 }

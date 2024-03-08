@@ -42,6 +42,10 @@ Route::post('/pay/confirm', [PaymentController::class,'confirmPrice']);
 Route::get ('/pay/checkout', [PaymentController::class,'showCheckoutPage'])->name('checkout');
 Route::post ('/pay/checkout/validate', [PaymentController::class,'validateCheckoutForm']);
 Route::post('/pay/checkout/confirm', [PaymentController::class,'confirmCheckout']);
+Route::get ('/pay/checkout/result', function() {
+    return view('page.pay.result');
+})->name('checkout-result');
+
 // Route::get('/pay/checkout/confirm', function() {
 //     return view('page.pay.result')
 //     ->with('success',false)
