@@ -22,6 +22,11 @@
                 <img src="/images/pages/payment/Zelle logo.png" alt="Zelle Logo">
             </div>
             <li>Credit or debit payment through Authorize.net. Read on for more information. </li>
+            <!-- (c) 2005, 2024. Authorize.Net is a registered trademark of CyberSource Corporation -->
+            <div class="AuthorizeNetSeal">
+                <script type="text/javascript" language="javascript">var ANS_customer_id="b9ec0af0-f1b0-4b27-a4a8-655915dd95e2";</script>
+                <script type="text/javascript" language="javascript" src="//verify.authorize.net:443/anetseal/seal.js" ></script>
+            </div
         </ol>
     </div>
 
@@ -48,7 +53,6 @@
             {{ csrf_field() }}
             <div class="input-section">
                 <div class="field-container" >
-                    {{-- TODO: check if invoice number should be required --}}
                     <label for="invoice">Invoice Number:</label>
                     <input class="form-control" id="invoice" placeholder="00000" maxlength="5" name="invoice">
                 </div>

@@ -114,6 +114,13 @@
     </div>
 </div>
 </form>
+    <!-- (c) 2005, 2024. Authorize.Net is a registered trademark of CyberSource Corporation -->
+    <div class="button-container" style="grid-area: button;">
+        <div class="AuthorizeNetSeal">
+            <script type="text/javascript" language="javascript">var ANS_customer_id="b9ec0af0-f1b0-4b27-a4a8-655915dd95e2";</script>
+            <script type="text/javascript" language="javascript" src="//verify.authorize.net:443/anetseal/seal.js" ></script>
+        </div>
+    </div>
 </div>
 @if (env('APP_ENV') === 'local')
     <script type="text/javascript" src="https://jstest.authorize.net/v1/Accept.js" charset="utf-8"></script>

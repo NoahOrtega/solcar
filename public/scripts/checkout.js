@@ -2,8 +2,6 @@ function attemptSubmission() {
 
     let formData = $("#checkoutForm").serialize();
 
-    console.log(formData);
-
     $.ajax({
         url: '/pay/checkout/validate',
         type: 'POST',
@@ -51,7 +49,7 @@ function sendPaymentDataToAnet() {
     let fullName = fname+" "+lname;
 
     var cardData = {};
-	cardData.cardNumber = document.getElementById("cardNumber").value;
+	cardData.cardNumber = document.getElementById("cardNumber").value.replace(/\s/g, '');
 	cardData.month = document.getElementById("month").value;
 	cardData.year = document.getElementById("year").value;
 	cardData.cardCode = document.getElementById("cardCode").value;
