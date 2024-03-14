@@ -20,7 +20,7 @@
             <div class="heading">Invoice Payment:</div><div class="price">${{number_format((float)$subtotal, 2, '.', '')}} USD</div>
         </div>
         <div class="row surcharge">
-            <div class="heading">{{env('SURCHARGE_PERCENTAGE_AS_INT')}}% Convenience Fee:</div><div class="price"> ${{number_format((float)$surcharge, 2, '.', '')}} USD</div>
+            <div class="heading">Convenience Fee:</div><div class="price"> ${{number_format((float)$surcharge, 2, '.', '')}} USD</div>
         </div>
         <div class="row total">
             <div class="heading">Total Charge:</div><div class="price">${{number_format((float)$total, 2, '.', '')}} USD</div>
