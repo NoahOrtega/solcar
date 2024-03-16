@@ -1,5 +1,6 @@
 @import "../variables";
 
+
 h2 {
     margin-bottom: .5rem;
 }
@@ -24,5 +25,186 @@ h2 {
         li {
             padding-bottom: 1rem;
         }
+    }
+}
+
+.img-wrapper {
+    width: 100%;
+    padding: 20px;
+    // overflow: hidden;
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+}
+
+.charges-container {
+    margin: 0 auto;
+    padding-bottom: 1rem;
+    .subcontainer {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .row {
+        display: flex;
+        justify-content:space-between;
+
+        line-height: 1.1em;
+        text-align: right;
+        padding-bottom: .2rem;
+    }
+
+    .heading {
+        text-align: left;
+    }
+
+    .price {
+        flex-basis: 40%;
+    }
+
+    .subtotal, .total {
+        font-size: large;
+        font-weight:600;
+    }
+
+    .surcharge {
+        font-size: 14px;
+        line-height: 1rem;
+    }
+
+    .total {
+        padding-top: .4rem;
+        border-top: 1px solid #ccc;
+    }
+}
+
+.form-errors {
+    max-width: 640px;
+    margin: auto;
+    color: lightcoral;
+    font-size: 13px;
+    list-style-position: inside;
+    padding-bottom: 0rem;
+
+    p {
+        font-weight: bold;
+    }
+
+    &.hidden{
+        display: none;
+    }
+}
+
+.field-error label{
+    color: lightcoral;
+    font-weight: bold;
+    &::after {
+        content:'*';
+    }
+}
+
+.form-container {
+    .payment-container, .personal-container, .start-container {
+        display: grid;
+        margin: auto;
+        grid-column-gap: 10px;
+        max-width: 640px;
+        padding: 20px 0px;
+        color: #707070;
+    }
+
+    @media (max-width: 400px) {
+        .payment-container, .personal-container, .start-container {
+            display: block;
+
+            .field-container {
+                padding-bottom: 1rem;
+            }
+        }
+    }
+
+    .personal-container {
+        grid-template-columns: auto auto;
+        grid-template-rows: 90px 90px;
+        grid-template-areas:
+        "company company"
+        "fname lname"
+        "email phone"
+        ;
+    }
+    .payment-container {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-rows: 90px 90px 90px 90px 90px 90px auto;
+        grid-template-areas:
+        "number number number number number number"
+        "exp-month exp-month exp-year exp-year security security"
+        "street street street street street street"
+        "apartment apartment apartment apartment apartment apartment"
+        "zip zip city city state state"
+        ". . button button . ."
+        ;
+    }
+    .button-container {
+        padding-top: 2rem;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        button {
+            height: 3rem;
+            padding: 0rem 2rem;
+            border-radius: 3px;
+            border-color: transparent;
+            line-height: 3rem;
+            font-size: 24px;
+            color: white;
+            background-color: $accent-color;
+
+
+            &:hover {
+                background-color: $primary-color;
+            }
+        }
+    }
+
+    .field-container input {
+        box-sizing: border-box;
+    }
+
+    .field-container {
+        position: relative;
+    }
+
+    label {
+        padding-bottom: 5px;
+        font-size: 13px;
+    }
+
+    input {
+        margin-top: 3px;
+        padding: 15px;
+        font-size: 16px;
+        width: 100%;
+        border-radius: 3px;
+        border: 1px solid #dcdcdc;
+    }
+
+    .ccicon {
+        height: 38px;
+        position: absolute;
+        right: 6px;
+        top: calc(50% - 17px);
+        width: 60px;
+    }
+}
+
+.receipt {
+    a {
+        color: $text-link-color-darker;
+        // font-weight: lighter;
     }
 }

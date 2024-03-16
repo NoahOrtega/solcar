@@ -37,8 +37,23 @@ Route::get('/sitemap', function () {
 Route::get('/contact', [ContactController::class,'show'])->name('contact');
 Route::post('/contact', [ContactController::class,'mailContactForm']);
 //PAY
-Route::get('/pay', [PaymentController::class,'show'])->name('pay');
+Route::get('/pay', [PaymentController::class,'showPaymentInfoPage'])->name('pay');
+Route::post('/pay/confirm', [PaymentController::class,'confirmPrice']);
+Route::get ('/pay/checkout', [PaymentController::class,'showCheckoutPage'])->name('checkout');
+Route::post ('/pay/checkout/validate', [PaymentController::class,'validateCheckoutForm']);
+Route::post('/pay/checkout/confirm', [PaymentController::class,'confirmCheckout']);
+Route::get ('/pay/checkout/result', function() {
+    return view('page.pay.result');
+})->name('checkout-result');
 
+// Route::get('/pay/checkout/confirm', function() {
+//     return view('page.pay.result')
+//     ->with('success',false)
+//     ->with('code','E00006')
+//     ->with('totalPrice', 23.45)
+//     ->with('email', "midlight97@gmail.com")
+//     ->with('invoiceNum', "12345");
+// });
 
 //About pages
 Route::get('/about', function () {
