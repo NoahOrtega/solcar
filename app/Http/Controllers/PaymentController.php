@@ -45,7 +45,7 @@ class PaymentController extends Controller
     {
         $request->validate([
             'payment' => 'required|numeric|min:1|max:2000000',
-            'invoice' => 'nullable|numeric|digits:5',
+            'invoice' => 'nullable|max:9',
         ]);
 
 

@@ -54,7 +54,7 @@
             <div class="input-section">
                 <div class="field-container" >
                     <label for="invoice">Invoice Number:</label>
-                    <input class="form-control" id="invoice" placeholder="00000" maxlength="5" name="invoice">
+                    <input class="form-control" id="invoice" placeholder="00000" maxlength="9" name="invoice">
                 </div>
                 <br>
                 <div class="field-container" >
