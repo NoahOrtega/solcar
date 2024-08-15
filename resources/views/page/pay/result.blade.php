@@ -10,9 +10,9 @@
 <div class="banner">
     <p>You've successfully made a payment of <b>${{session("receipt-totalPrice")}}</b>{{session("receipt-invoiceNum") !== null ? ' towards invoice #'.session("receipt-invoiceNum").'.' : '.'}}</p>
     <br>
-    <p>A confirmation reciept will be sent to {{session("receipt-email")}} shortly.</p>
+    <p>A confirmation receipt will be sent to {{session("receipt-email")}} shortly.</p>
 </div>
-<p>If you have any questions or concerns, please contact us at <a href="mailto:office@solcarelectric.net"><b>office@solcarelectric.net</b></a></p>
+<p>If you have any questions or concerns, please contact us at <a href="mailto:office@solcarelectric.com"><b>office@solcarelectric.com</b></a></p>
 @else
     @if (session("receipt-success") === false)
     <div class="banner">
@@ -27,7 +27,7 @@
         Please check your email for transaction receipts.
     </div>
     @endif
-    <p>For support, please make a note of the error and contact us at <a href="mailto:office@solcarelectric.net"><b>office@solcarelectric.net</b></a></p>
+    <p>For support, please make a note of the error and contact us at <a href="mailto:office@solcarelectric.com"><b>office@solcarelectric.com</b></a></p>
 @endif
 
 <div class="img-wrapper">

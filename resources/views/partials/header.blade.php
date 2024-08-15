@@ -28,6 +28,7 @@
             <li class="navbar__dropdown-option navbar__option"><a href="\services\ev-charging" class="navbar__link">Electric Vehicle Charging</a></li>
             <li class="navbar__dropdown-option navbar__option"><a href="\services\generators" class="navbar__link">Generators</a></li>
             <li class="navbar__dropdown-option navbar__option"><a href="\services\recertification" class="navbar__link">Recertification Inspections</a></li>
+            <li class="navbar__dropdown-option navbar__option"><a href="\services\thermography" class="navbar__link">Thermal Scanning</a></li>
         </ul>
     </li>
     <li class="navbar__option navbar__parent-option">

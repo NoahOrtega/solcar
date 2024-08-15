@@ -19,10 +19,13 @@ input {
 }
 
 input, textarea {
+    padding-left: 8px;
+    padding-right: 8px;
     color: $text-color;
 }
 
 textarea {
+    padding-top: 8px;
     width: 100%;
     resize: none;
     height: 90%;

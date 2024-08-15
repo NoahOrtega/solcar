@@ -22,7 +22,7 @@
     </div>
     <div class="feedback-section">
         <label for="comment">Message </label>
-        <textarea type="text" class="form-control" id="comment" placeholder="" name="comment"  cols="30" rows="10" required> {{ old('comment') }}</textarea>
+        <textarea type="text" class="form-control" id="comment" placeholder="" name="comment"  cols="30" rows="10" required>{{ old('comment') }}</textarea>
     </div>
     <div class="form-group">
         <button type="submit" class="submit-button" value="Send">Send</button>

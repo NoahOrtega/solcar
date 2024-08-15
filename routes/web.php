@@ -103,5 +103,10 @@ Route::get('/services/recertification', function () {
     ->with('title','Recertification')
     ->with('description','Certified Miami Dade infrared thermal imaging inspections for your 40/50 year recertification. Trained thermographers for your commercial building inspections.');
 })->name('recertification');
+Route::get('/services/thermography', function () {
+    return view('page.service.thermography')
+    ->with('title','Thermal Scanning Services')
+    ->with('description','Ensure safety and efficiency with our expert Infrared Thermography Imaging');
+})->name('thermography');
 
 require_once "redirects.php";

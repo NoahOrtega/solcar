@@ -30,7 +30,7 @@
         <div class="article-subsection">
             <h3 class="subsection-heading"> Summary of required electrical inspections after the 2022 amendment:</h3>
             <ul>
-                <li><span class="item-heading">Thermography Inspection:</span> This new requirement calls for a full Infrared thermal imaging report of your building's electrical equipment conducted by a certified infrared thermography technician with at least seven years of experience. <a href="/pages/services/recertification.php#WHY_CHOOSE_US_SECTION">Read here why we’re the trusted choice</a> </li>
+                <li><span class="item-heading">Thermography Inspection:</span> This new requirement calls for a full Infrared thermal imaging report of your building's electrical equipment conducted by a certified infrared thermography technician with at least seven years of experience. <a href="/services/thermography">Read more about our thermography services here.</a> </li>
                 <li><span class="item-heading">Electrical Service:</span> Analysis of the type of electrical services supplying your building, including the amperage size, phase, and fuse and breaker protection.</li>
                 <li><span class="item-heading">Branch Circuits:</span> Electrical panel inspection and identification of branch circuits, including an evaluation of conductors and grounding on equipment such as generators and elevator motors.</li>
                 <li><span class="item-heading">Conduit Raceways:</span> Individual inspections of all wiring methods present in the building, searching for erosion in conduits and cables.</li>

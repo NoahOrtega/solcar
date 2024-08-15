@@ -17,6 +17,7 @@ mix
 .sass('resources/css/page/service/lighting.scss', 'public/build/css/')
 .sass('resources/css/page/service/our-services.scss', 'public/build/css/')
 .sass('resources/css/page/service/recertification.scss', 'public/build/css/')
+.sass('resources/css/page/service/thermography.scss', 'public/build/css/')
 //about
 .sass('resources/css/page/about/about-us.scss', 'public/build/css/')
 .sass('resources/css/page/about/certifications.scss', 'public/build/css/')
